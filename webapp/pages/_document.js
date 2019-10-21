@@ -19,6 +19,7 @@ class MyDocument extends Document {
           rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
         />
+        <title>Quiz - engels</title>
       </Head>
       <body>
       <Main />
