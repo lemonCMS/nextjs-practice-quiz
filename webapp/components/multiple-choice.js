@@ -1,15 +1,17 @@
 import React from 'react';
-import Box from "@material-ui/core/Box";
 import {PropTypes} from "prop-types";
 import Paper from "@material-ui/core/Paper";
 import Typography from "@material-ui/core/Typography";
 import {withStyles} from '@material-ui/core/styles';
 import List from "@material-ui/core/List";
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 import Stepper from "./sections/stepper";
 import translations from './data';
 import Answers from "./sections/answers";
-import Result from "./sections/result";
-import Button from "@material-ui/core/Button";
+import Finished from "./sections/finished";
+import Manual from "./sections/manual";
+import Grid from "@material-ui/core/Grid";
+import Tooltip from "@material-ui/core/Tooltip";
 
 const useStyles = theme => {
   return ({
@@ -34,18 +36,30 @@ class MultipleChoice extends React.Component {
     activeStep: 0,
     indices: [],
     answers: [],
+    answersManual: [],
     choices: [],
     activeQuestion: null,
-    activeAnswers: [],
-    limit: 10
+    activeAnswers: []
   };
+
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (
+      this.props.limit !== prevProps.limit ||
+      this.props.answer !== prevProps.answer ||
+      this.props.manual !== prevProps.manual
+    ) {
+      this.reset();
+    }
+  }
 
   componentDidMount() {
     this.setQuestion();
   }
 
   setQuestion = () => {
-    const {indices, limit} = this.state;
+    const {indices} = this.state;
+    const {limit} = this.props;
+
     if (indices.length === limit) {
       return;
     }
@@ -76,12 +90,15 @@ class MultipleChoice extends React.Component {
   };
 
   setAnswer = (answer) => {
-    const {activeStep, activeQuestion, answers, choices, limit} = this.state;
+    const {activeStep, activeQuestion, answers, answersManual, choices} = this.state;
+    const {limit} = this.props;
+
     if (answer === activeQuestion) {
       answers.push(1);
     } else {
       answers.push(0);
     }
+    answersManual.push(0);
     choices.push(answer);
     this.setState({answers, activeStep: activeStep + 1});
 
@@ -93,70 +110,94 @@ class MultipleChoice extends React.Component {
     this.setQuestion();
   };
 
-  reset = (nextLimit = null) => {
+  setManualAnswer = (answer, perfect, fuzzy) => {
+    const {activeStep, answersManual, answers, choices} = this.state;
+    const {limit} = this.props;
 
-    const {limit} = this.state;
+    answersManual.push(fuzzy);
+    // console.log({fuzzy, perfect});
+    answers.push(perfect ? 1 : 0);
+    choices.push(answer);
+    this.setState({answers, answersManual, activeStep: activeStep + 1});
+
+    console.log({limit});
+
+    if (answersManual.length === limit) {
+      this.setState({answers, answersManual, finished: true, activeStep: activeStep + 1});
+      return;
+    }
+
+    this.setQuestion();
+  };
+
+  reset = (nextLimit = null) => {
+    const {limit} = this.props;
 
     this.setState({
       activeStep: 0,
       indices: [],
       answers: [],
+      answersManual: [],
       choices: [],
       activeQuestion: null,
       activeAnswers: [],
       finished: false,
-      limit: nextLimit ? nextLimit :  limit
+      limit: nextLimit ? nextLimit : limit
     }, () => {
       this.setQuestion();
     });
   };
 
   render() {
-    const {activeStep, activeAnswers, activeQuestion, finished, answers, indices, choices, limit} = this.state;
-    const {classes, answer, question} = this.props;
-    const length = translations.length;
+    const {activeStep, activeAnswers, activeQuestion, finished, answers, indices, choices, answersManual} = this.state;
+    const {classes, answer, question, manual, limit} = this.props;
     if (activeQuestion === null) {
       return <div>Loading....</div>
     }
 
     if (finished) {
-      const good = answers.reduce((x, y) => x + y);
       return (
-        <>
-          <Stepper activeStep={activeStep} length={limit} />
-          <Paper className={classes.root}>
-            <Typography component="p" className={classes.padding}>
-              {good} goed van de {limit}
-            </Typography>
-          </Paper>
-          <Result indices={indices} choices={choices} questionField={question} answerField={answer} limit={limit} />
-          <Box>
-            <Button variant="contained" className={classes.button} onClick={() => this.reset()}>
-              Start opnieuw
-            </Button>
-            <Button variant="contained" className={classes.button} onClick={() => this.reset(15)}>
-              Speel met 15 vragen
-            </Button>
-            <Button variant="contained" className={classes.button} onClick={() => this.reset(20)}>
-              Speel met 20 vragen
-            </Button>
-            <Button variant="contained" className={classes.button} onClick={() => this.reset(length)}>
-              Speel met alle vragen
-            </Button>
-          </Box>
-        </>
+        <Finished
+          reset={this.reset}
+          indices={indices}
+          limit={limit}
+          choices={choices}
+          activeStep={activeStep}
+          question={question}
+          answer={answer}
+          answersManual={answersManual}
+          answers={answers}
+          isManual={manual}
+        />
       );
     }
+
     return (
       <>
         <Stepper activeStep={activeStep} length={limit} />
         <Paper className={classes.root}>
-          <Typography component="p" className={classes.padding}>
-            {translations[activeQuestion][question]}
-          </Typography>
+          <Grid container spacing={4}>
+            <Grid item>
+              <Tooltip title="Weet jij de vertaling?">
+                <HelpOutlineIcon />
+              </Tooltip>
+            </Grid>
+            <Grid item>
+              <Typography component="p">
+                {translations[activeQuestion][question]}
+              </Typography>
+            </Grid>
+          </Grid>
         </Paper>
         <List component="nav" aria-label="Answers" className={classes.list}>
-          <Answers activeAnswers={activeAnswers} field={answer} setAnswer={this.setAnswer} />
+          {!manual && <Answers activeAnswers={activeAnswers} field={answer} setAnswer={this.setAnswer} />}
+          {manual &&
+          <Manual
+            answerField={answer}
+            questionField={question}
+            question={translations[activeQuestion]}
+            setManualAnswer={this.setManualAnswer} />
+          }
         </List>
       </>)
   }
@@ -164,6 +205,13 @@ class MultipleChoice extends React.Component {
 
 MultipleChoice.propTypes = {
   question: PropTypes.string.isRequired,
-  answer: PropTypes.string.isRequired
+  answer: PropTypes.string.isRequired,
+  manual: PropTypes.bool,
+  limit: PropTypes.number
+};
+
+MultipleChoice.defaultProps = {
+  manual: false,
+  limit: 5
 };
 export default withStyles(useStyles)(MultipleChoice);

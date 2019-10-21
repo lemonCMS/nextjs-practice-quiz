@@ -36,16 +36,17 @@ const useStyles = makeStyles(theme => ({
     backgroundColor: "#44AF69",
     color: theme.palette.getContrastText("#44AF69"),
     padding: theme.spacing(1, 1),
+    marginBottom: theme.spacing(1),
   },
   inline: {
     display: "inline-flex"
   }
 }));
 
-function Result({indices, choices, questionField, answerField}) {
+function Result({isManual, indices, choices, questionField, answerField, answers}) {
   const classes = useStyles();
   return indices.map((indice, index) => {
-    if (choices[index] === indice) {
+    if (answers[index]) {
       return null;
     }
 
@@ -55,29 +56,32 @@ function Result({indices, choices, questionField, answerField}) {
           <Typography component="h2" gutterBottom  className={classes.title}>
             {translations[indice][questionField]}
           </Typography>
+
+          <Typography className={classes.good} component="div">
+            <CheckIcon />
+            <div className={classes.inline}>
+              {translations[indice][answerField]}
+            </div>
+          </Typography>
+
           <div className={classes.wrong}>
             <Grid container direction="row" alignItems="center">
               <Grid item>
                 <ClearIcon />
               </Grid>
               <Grid item>
-                <div>{translations[choices[index]][answerField]}</div>
+                {isManual && choices[index]}
+                {!isManual && <div>{translations[choices[index]][answerField]}</div>}
               </Grid>
             </Grid>
           </div>
-          <Typography className={classes.good} component="p">
-            <CheckIcon />
-            <div className={classes.inline}>
-              {translations[indice][answerField]}
-            </div>
-          </Typography>
         </CardContent>
       </Card>
       );
   })
 }
 
-Result.PropTypes = {
+Result.propTypes = {
   indices: PropTypes.array.isRequired,
   choices: PropTypes.array.isRequired,
   questionField: PropTypes.string.isRequired,

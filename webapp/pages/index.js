@@ -1,6 +1,7 @@
 import React from 'react'
 import Head from "next/head";
 import Container from "@material-ui/core/Container";
+import Menu from '../components/menu';
 import NextLink from 'next/link';
 import Link from '@material-ui/core/Link';
 import Typography from "@material-ui/core/Typography";
@@ -27,7 +28,6 @@ const useStyles = theme => {
 };
 
 class Index extends React.Component {
-
   render() {
     const {classes} = this.props;
     return (<>
@@ -45,28 +45,10 @@ class Index extends React.Component {
             Words to know
           </Typography>
         </Paper>
-        <List>
-          <ListItem button>
-            <NextLink href="/nl">
-              <Link
-                component="button"
-                variant="body2"
-              >
-                Nederlands => Engels
-              </Link>
-            </NextLink>
-          </ListItem>
-          <ListItem button>
-            <NextLink href="/nl">
-              <Link
-                component="button"
-                variant="body2"
-              >
-                Engels => Nederlans
-              </Link>
-            </NextLink>
-          </ListItem>
-        </List>
+        <Typography paragraph>
+          Maak hieronder een keuze wat je wilt gaan oefenen!
+        </Typography>
+        <Menu />
       </Container>
     </>);
   }

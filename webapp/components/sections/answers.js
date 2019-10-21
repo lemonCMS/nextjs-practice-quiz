@@ -1,6 +1,6 @@
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-import ChevronRightRoundedIcon from "@material-ui/core/SvgIcon/SvgIcon";
+import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
 import ListItemText from "@material-ui/core/ListItemText";
 import React from "react";
 import PropTypes from "prop-types";
@@ -29,28 +29,14 @@ const shuffle = (array) => {
 
 function Answers({activeAnswers, field, setAnswer}) {
   const answers = shuffle(activeAnswers);
-  // const audioPlayBack = (value) => {
-  //   return (
-  //     <audio
-  //       controls
-  //       src={`https://translate.google.com.vn/translate_tts?ie=UTF-8&q=${encodeURIComponent(value)}T&tl=en&client=tw-ob`}>
-  //       Your browser does not support the
-  //       <code>audio</code> element.
-  //     </audio>
-  //   );
-  // };
-
   return answers.map((index, key) =>
     (<ListItem button key={key}>
       <ListItemIcon>
-        <ChevronRightRoundedIcon />
+        <RadioButtonUncheckedIcon />
       </ListItemIcon>
       <ListItemText onClick={() => {
         setAnswer(index);
       }} primary={translations[index][field]} />
-      {/*<div>*/}
-      {/*  {audioPlayBack(translations[index][field])}*/}
-      {/*</div>*/}
     </ListItem>)
   );
 }

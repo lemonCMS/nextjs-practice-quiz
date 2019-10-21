@@ -4,12 +4,20 @@
     "en": "jeans"
   },
   {
-    "nl": "een dik / dun persoon",
+    "nl": "een stevig / dun persoon",
     "en": "a plump / thin person"
+  },
+  {
+    "nl": "een paar schoenen",
+    "en": "a pair of shoes"
   },
   {
     "nl": "krullend / stijl haar",
     "en": "curly / straight hair"
+  },
+  {
+    "nl": "een lang / klein persoon",
+    "en": "a tall / short person"
   },
   {
     "nl": "mooi",
@@ -97,7 +105,7 @@
     "en": "trousers"
   }, {
     "nl": "wasmachine",
-    "en": "wasching machine"
+    "en": "washing machine"
   }, {
     "nl": "jong",
     "en": "young"
