@@ -47,7 +47,7 @@ export default function () {
         </MenuItem>
         <Divider />
         <ListSubheader disableSticky={true}>
-          Engels, openvragen
+          Engels, open antwoorden
         </ListSubheader>
         <Divider />
         <MenuItem lang={'en'} limit={'5'} manual={true} store={store}>
@@ -93,7 +93,7 @@ export default function () {
         </MenuItem>
         <Divider />
         <ListSubheader disableSticky={true}>
-          Engels, openvragen
+          Nederlands, open antwoorden
         </ListSubheader>
         <Divider />
         <MenuItem lang={'nl'} limit={'5'} manual={true} store={store}>

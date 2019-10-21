@@ -46,7 +46,7 @@ class Index extends React.Component {
           </Typography>
         </Paper>
         <Typography paragraph>
-          Maak hieronder een keuze wat je wilt gaan oefenen!
+          Maak de oefeningen en verdien sterren. Blijf net zolang oefenen tot je alle sterren groen heb gemaakt.
         </Typography>
         <Menu />
       </Container>
