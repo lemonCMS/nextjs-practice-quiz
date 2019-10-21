@@ -5,8 +5,26 @@ import NextLink from "next/dist/client/link";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItem from "@material-ui/core/ListItem";
 import React, {useEffect, useState} from "react";
+import {makeStyles} from "@material-ui/core";
+import red from "@material-ui/core/colors/red";
+import orange from "@material-ui/core/colors/orange";
+import green from "@material-ui/core/colors/green";
 
-export default function({lang, limit, manual, store, children}) {
+const useStyles = makeStyles(() => ({
+  red: {
+    color: red[500]
+  },
+  orange: {
+    color: orange[500]
+  },
+  green: {
+    color: green[500]
+  },
+}));
+
+
+export default function ({lang, limit, manual, store, children}) {
+  const classes = useStyles();
   const [star, setStar] = useState(null);
   const key = `star-${lang}-${limit}-${manual}`;
 
@@ -17,24 +35,24 @@ export default function({lang, limit, manual, store, children}) {
   });
 
   const showStar = () => {
-    switch(star) {
+    switch (star) {
       case 0:
-        return <StarBorderIcon />;
+        return <StarBorderIcon className={classes.red} />;
       case 1:
-        return <StarHalfIcon />;
+        return <StarHalfIcon className={classes.orange} />;
       case 2:
-        return <StarIcon />;
+        return <StarIcon className={classes.green} />;
       default:
         return null;
     }
   };
 
   return (
-    <ListItem button>
-      {showStar()}
-      <NextLink href={`/${lang}?limit=${limit}&manual=${manual}`}>
+    <NextLink href={`/${lang}?limit=${limit}&manual=${manual}`}>
+      <ListItem button>
+        {showStar()}
         <ListItemText primary={children} />
-      </NextLink>
-    </ListItem>
+      </ListItem>
+    </NextLink>
   );
 }

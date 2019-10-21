@@ -30,13 +30,13 @@ const shuffle = (array) => {
 function Answers({activeAnswers, field, setAnswer}) {
   const answers = shuffle(activeAnswers);
   return answers.map((index, key) =>
-    (<ListItem button key={key}>
+    (<ListItem button key={key} onClick={() => {
+      setAnswer(index);
+    }}>
       <ListItemIcon>
         <RadioButtonUncheckedIcon />
       </ListItemIcon>
-      <ListItemText onClick={() => {
-        setAnswer(index);
-      }} primary={translations[index][field]} />
+      <ListItemText primary={translations[index][field]} />
     </ListItem>)
   );
 }

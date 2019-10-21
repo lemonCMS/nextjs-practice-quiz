@@ -4,8 +4,6 @@ import ListItemText from "@material-ui/core/ListItemText";
 import Divider from "@material-ui/core/Divider";
 import React, {useState} from "react";
 import ListSubheader from "@material-ui/core/ListSubheader";
-import NextLink from "next/link";
-import StarIcon from '@material-ui/icons/Star';
 import localforage from "localforage";
 import MenuItem from './menu-item';
 
