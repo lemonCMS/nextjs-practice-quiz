@@ -120,8 +120,6 @@ class MultipleChoice extends React.Component {
     choices.push(answer);
     this.setState({answers, answersManual, activeStep: activeStep + 1});
 
-    console.log({limit});
-
     if (answersManual.length === limit) {
       this.setState({answers, answersManual, finished: true, activeStep: activeStep + 1});
       return;

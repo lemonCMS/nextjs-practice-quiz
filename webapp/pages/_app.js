@@ -152,8 +152,6 @@ class PersistentDrawerLeft extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-
     const {classes, Component, pageProps, store} = this.props;
     const {open} = this.state;
     return (
