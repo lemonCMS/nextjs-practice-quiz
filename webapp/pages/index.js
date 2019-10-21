@@ -39,7 +39,7 @@ class Index extends React.Component {
       <Container>
         <Paper className={classes.root}>
           <Typography variant="h3" gutterBottom>
-            Unit 1 Lesson 4
+            Unit 1 lesson 4
           </Typography>
           <Typography variant="subtitle1" gutterBottom>
             Words to know
