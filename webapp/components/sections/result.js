@@ -43,7 +43,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function Result({isManual, indices, choices, questionField, answerField, answers}) {
+function Result({isManual, indices, choices, questionField, answerField, answers, answersManual}) {
   const classes = useStyles();
   return indices.map((indice, index) => {
     if (answers[index]) {
@@ -54,7 +54,7 @@ function Result({isManual, indices, choices, questionField, answerField, answers
       <Card className={classes.card} key={index}>
         <CardContent>
           <Typography component="h2" gutterBottom  className={classes.title}>
-            {translations[indice][questionField]}
+            "{translations[indice][questionField]}" {answersManual[index] === 1 ? 'had je bijna goed': ''}
           </Typography>
 
           <Typography className={classes.good} component="div">

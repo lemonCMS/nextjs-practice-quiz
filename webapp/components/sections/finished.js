@@ -56,11 +56,11 @@ const useStyles = makeStyles(theme => {
 function Finished({isManual, reset, activeStep, limit, choices, question, answer, indices, answersManual, answers}) {
   const classes = useStyles();
   const good = answers.reduce((x, y) => x + y);
-  const partialGood = answersManual.reduce((x, y) => x + y) - good;
+  const partialGood = answersManual.reduce((x, y) => x + y);
 
   const key = `star-${question}-${limit}-${isManual}`;
   let star = null;
-  const percentage = (100 / limit * good);
+  const percentage = (100 / limit  * good);
   if (percentage === 100) {
     star = 2;
   }
@@ -105,14 +105,12 @@ function Finished({isManual, reset, activeStep, limit, choices, question, answer
       {/*    Je hebt er {good} goed van de {limit}*/}
       {/*  </Typography>*/}
       {/*</Paper>*/}
-      {isManual && partialGood > 0 &&
-      <Paper className={classes.root}>
-        <Typography component="p" className={classes.padding}>
-          je hebt nog {partialGood} bijna goed!
-        </Typography>
-      </Paper>}
-
-
+      {/*{isManual && partialGood > 0 &&*/}
+      {/*<Paper className={classes.root}>*/}
+      {/*  <Typography component="p" className={classes.padding}>*/}
+      {/*    je hebt nog {partialGood} bijna goed!*/}
+      {/*  </Typography>*/}
+      {/*</Paper>}*/}
 
       <Result
         indices={indices}
