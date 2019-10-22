@@ -135,16 +135,6 @@ class PersistentDrawerLeft extends React.Component {
     this.setState({open: false});
   };
 
-  static async getInitialProps({Component, ctx}) {
-    let pageProps = {};
-
-    if (Component.getInitialProps) {
-      pageProps = await Component.getInitialProps({ctx})
-    }
-
-    return {pageProps};
-  }
-
   componentDidMount() {
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
