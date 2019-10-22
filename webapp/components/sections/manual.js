@@ -18,7 +18,7 @@ function Manual({question, questionField, answerField, setManualAnswer}) {
   const classes = useStyles();
   let inputRef = useRef(null);
   const change = (event) => {
-    setValue(event.target.value);
+    setValue(String(event.target.value).toLowerCase());
   };
 
   const next = (event) => {
