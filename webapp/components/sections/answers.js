@@ -1,10 +1,13 @@
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import RadioButtonUncheckedIcon from '@material-ui/icons/RadioButtonUnchecked';
+import RadioButtonCheckedIcon from '@material-ui/icons/RadioButtonChecked';
 import ListItemText from "@material-ui/core/ListItemText";
-import React from "react";
+import React, {useState} from "react";
 import PropTypes from "prop-types";
 import translations from '../data';
+import Button from "@material-ui/core/Button";
+import Grid from "@material-ui/core/Grid";
 
 const shuffle = (array) => {
   let currentIndex = array.length;
@@ -27,18 +30,75 @@ const shuffle = (array) => {
   return array;
 };
 
-function Answers({activeAnswers, field, setAnswer}) {
-  const answers = shuffle(activeAnswers);
-  return answers.map((index, key) =>
-    (<ListItem button key={key} onClick={() => {
-      setAnswer(index);
-    }}>
-      <ListItemIcon>
-        <RadioButtonUncheckedIcon />
-      </ListItemIcon>
-      <ListItemText primary={translations[index][field]} />
-    </ListItem>)
-  );
+class Answers extends React.Component {
+
+  constructor(props) {
+    super(props);
+    const {activeAnswers} = props;
+    this.state = {
+      answer: null
+    };
+  }
+
+  componentDidUpdate(prevProps) {
+    if (JSON.stringify(prevProps) !== JSON.stringify(this.props)) {
+      const answers = shuffle(this.props.activeAnswers);
+      this.setState({answers});
+    }
+  }
+
+  componentDidMount() {
+    const answers = shuffle(this.props.activeAnswers);
+    this.setState({answers});
+  }
+
+  tmpAnswer = (answer) => {
+    this.setState({answer})
+  };
+
+  list = () => {
+    const {answers, answer} = this.state;
+    if (typeof answers === 'undefined') {
+      return null;
+    }
+    const {field} = this.props;
+    return answers.map((index, key) =>
+      (<ListItem button key={key} onClick={() => {
+        this.tmpAnswer(index);
+      }}>
+        <ListItemIcon>
+          {answer === index ? <RadioButtonCheckedIcon /> : <RadioButtonUncheckedIcon />}
+        </ListItemIcon>
+        <ListItemText primary={translations[index][field]} />
+      </ListItem>)
+    );
+  };
+
+  render() {
+    const {setAnswer} = this.props;
+    const {answer} = this.state;
+    return (
+      <React.Fragment>
+        <Grid container spacing={4} direction="column">
+          <Grid item>
+            {this.list()}
+          </Grid>
+          <Grid item>
+            <Grid container>
+              <Grid item>
+                <Button
+                  color="primary"
+                  variant="contained"
+                  onClick={() => (setAnswer(answer))}>
+                  volgende
+                </Button>
+              </Grid>
+            </Grid>
+          </Grid>
+        </Grid>
+      </React.Fragment>
+    )
+  }
 }
 
 Answers.propTypes = {
