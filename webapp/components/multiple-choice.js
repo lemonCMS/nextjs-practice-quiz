@@ -12,6 +12,11 @@ import Finished from "./sections/finished";
 import Manual from "./sections/manual";
 import Grid from "@material-ui/core/Grid";
 import Tooltip from "@material-ui/core/Tooltip";
+import localforage from 'localforage';
+
+const store = localforage.createInstance({
+  name: "stars"
+});
 
 const useStyles = theme => {
   return ({
@@ -53,6 +58,10 @@ class MultipleChoice extends React.Component {
   }
 
   componentDidMount() {
+    const {answer, question, manual, limit} = this.props;
+    store.getItem(`answers-${question}-${answer}-${manual}-${limit}`).then((item) => {
+      this.setState(item);
+    });
     this.setQuestion();
   }
 
@@ -89,39 +98,48 @@ class MultipleChoice extends React.Component {
     return Math.floor(Math.random() * (max - min + 1)) + min - 1;
   };
 
-  setAnswer = (answer) => {
+  setAnswer = (givenAnswer) => {
     const {activeStep, activeQuestion, answers, answersManual, choices} = this.state;
-    const {limit} = this.props;
+    const {answer, question, manual, limit} = this.props;
 
-    if (answer === activeQuestion) {
+    if (givenAnswer === activeQuestion) {
       answers.push(1);
     } else {
       answers.push(0);
     }
     answersManual.push(0);
-    choices.push(answer);
-    this.setState({answers, activeStep: activeStep + 1});
+    choices.push(givenAnswer);
+    this.setState({answers, activeStep: activeStep + 1, choices, answersManual, activeQuestion}, (state) => {
+      store.setItem(`answers-${question}-${answer}-${manual}-${limit}`, this.state);
+    });
 
     if (answers.length === limit) {
-      this.setState({finished: true, activeStep: activeStep + 1});
+      this.setState({finished: true, answers, activeStep: activeStep + 1, choices, answersManual, activeQuestion}, (state) => {
+        store.setItem(`answers-${question}-${answer}-${manual}`, state);
+      });
       return;
     }
 
     this.setQuestion();
   };
 
-  setManualAnswer = (answer, perfect, fuzzy) => {
-    const {activeStep, answersManual, answers, choices} = this.state;
-    const {limit} = this.props;
+  setManualAnswer = (answerText, perfect, fuzzy) => {
+    const {activeStep, activeQuestion, answersManual, answers, choices} = this.state;
+    const {answer, question, manual, limit} = this.props;
 
     answersManual.push(fuzzy);
     // console.log({fuzzy, perfect});
     answers.push(perfect ? 1 : 0);
-    choices.push(answer);
-    this.setState({answers, answersManual, activeStep: activeStep + 1});
+    choices.push(answerText);
+
+    this.setState({answers, activeStep: activeStep + 1, choices, answersManual, activeQuestion}, () => {
+      store.setItem(`answers-${question}-${answer}-${manual}-${limit}`, this.state);
+    });
 
     if (answersManual.length === limit) {
-      this.setState({answers, answersManual, finished: true, activeStep: activeStep + 1});
+      this.setState({finished: true, answers, activeStep: activeStep + 1, choices, answersManual, activeQuestion}, () => {
+        store.setItem(`answers-${question}-${answer}-${manual}-${limit}`, this.state);
+      });
       return;
     }
 
@@ -129,20 +147,21 @@ class MultipleChoice extends React.Component {
   };
 
   reset = (nextLimit = null) => {
-    const {limit} = this.props;
-
-    this.setState({
-      activeStep: 0,
-      indices: [],
-      answers: [],
-      answersManual: [],
-      choices: [],
-      activeQuestion: null,
-      activeAnswers: [],
-      finished: false,
-      limit: nextLimit ? nextLimit : limit
-    }, () => {
-      this.setQuestion();
+    const {answer, question, manual, limit} = this.props;
+    store.removeItem(`answers-${question}-${answer}-${manual}-${limit}`).then(() => {
+      this.setState({
+        activeStep: 0,
+        indices: [],
+        answers: [],
+        answersManual: [],
+        choices: [],
+        activeQuestion: null,
+        activeAnswers: [],
+        finished: false,
+        limit: nextLimit ? nextLimit : limit
+      }, () => {
+        this.setQuestion();
+      });
     });
   };
 

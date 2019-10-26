@@ -74,9 +74,14 @@ class Answers extends React.Component {
     );
   };
 
-  render() {
-    const {setAnswer} = this.props;
+  pushAnswer = () => {
     const {answer} = this.state;
+    const {setAnswer} = this.props;
+    setAnswer(answer);
+    this.setState({answer: null});
+  }
+
+  render() {
     return (
       <React.Fragment>
         <Grid container spacing={4} direction="column">
@@ -89,7 +94,7 @@ class Answers extends React.Component {
                 <Button
                   color="primary"
                   variant="contained"
-                  onClick={() => (setAnswer(answer))}>
+                  onClick={this.pushAnswer}>
                   volgende
                 </Button>
               </Grid>
