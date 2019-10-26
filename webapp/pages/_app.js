@@ -127,14 +127,6 @@ class PersistentDrawerLeft extends React.Component {
     open: false
   };
 
-  handleDrawerOpen = () => {
-    this.setState({open: true});
-  };
-
-  handleDrawerClose = () => {
-    this.setState({open: false});
-  };
-
   static async getInitialProps({Component, ctx}) {
     let pageProps = {};
 
@@ -144,6 +136,14 @@ class PersistentDrawerLeft extends React.Component {
 
     return {pageProps};
   }
+
+  handleDrawerOpen = () => {
+    this.setState({open: true});
+  };
+
+  handleDrawerClose = () => {
+    this.setState({open: false});
+  };
 
   componentDidMount() {
     // Remove the server-side injected CSS.

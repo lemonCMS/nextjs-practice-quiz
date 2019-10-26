@@ -18,13 +18,13 @@ function Manual({question, questionField, answerField, setManualAnswer}) {
   const classes = useStyles();
   let inputRef = useRef(null);
   const change = (event) => {
-    setValue(event.target.value);
+    setValue(String(event.target.value).toLowerCase());
   };
 
   const next = (event) => {
     event.preventDefault();
     const result = fuse.search(value);
-    setManualAnswer(value, value === question[answerField], result.length);
+    setManualAnswer(value, value.replace(/\s/g, '') === question[answerField].replace(/\s/g, ''), result.length);
     setValue('');
     inputRef.current.focus();
   };
