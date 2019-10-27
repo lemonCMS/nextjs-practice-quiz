@@ -20,7 +20,7 @@ const store = localforage.createInstance({
   name: "stars"
 });
 
-const useStyles = makeStyles(theme => {
+const useStyles = theme => {
   return ({
     root: {
       padding: theme.spacing(3, 2),
@@ -50,7 +50,7 @@ const useStyles = makeStyles(theme => {
       textAlign: 'center'
     }
   });
-});
+};
 
 
 class Finished extends React.Component {
@@ -60,6 +60,7 @@ class Finished extends React.Component {
   };
 
   componentDidMount() {
+    console.log('MOUNT');
     const {isManual, limit, question, answersManual, answers} = this.props;
     const good = answers.reduce((x, y) => x + y);
     const partialGood = answersManual.reduce((x, y) => x + y);
@@ -82,6 +83,7 @@ class Finished extends React.Component {
 
   render() {
     const {classes, isManual, reset, activeStep, limit, choices, question, answer, indices, answersManual, answers} = this.props;
+    console.log(this.props);
     const {star} = this.state;
     const good = answers.reduce((x, y) => x + y);
 
@@ -112,7 +114,7 @@ class Finished extends React.Component {
           </Grid>
         </Grid>
 
-        <Result
+       <Result
           indices={indices}
           choices={choices}
           questionField={question}

@@ -71,7 +71,7 @@ function Result({isManual, indices, choices, questionField, answerField, answers
               </Grid>
               <Grid item>
                 {isManual && choices[index]}
-                {!isManual && <div>{translations[choices[index]][answerField]}</div>}
+                {!isManual && choices[index] && <div>{translations[choices[index]][answerField]}</div>}
               </Grid>
             </Grid>
           </div>
