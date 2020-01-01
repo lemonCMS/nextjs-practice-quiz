@@ -15,7 +15,7 @@ import Tooltip from "@material-ui/core/Tooltip";
 import localforage from 'localforage';
 
 const store = localforage.createInstance({
-  name: "stars"
+  name: "stars2"
 });
 
 const useStyles = theme => {

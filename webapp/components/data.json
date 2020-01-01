@@ -1,113 +1,122 @@
 [
   {
-    "nl": "spijkerbroek",
-    "en": "jeans"
+    "nl": "briefgeld",
+    "en": "banknotes"
   },
   {
-    "nl": "een stevig / dun persoon",
-    "en": "a plump / thin person"
+    "nl": "broccoli",
+    "en": "broccoli"
   },
   {
-    "nl": "een paar schoenen",
-    "en": "a pair of shoes"
+    "nl": "wortelen",
+    "en": "carrots"
   },
   {
-    "nl": "krullend / stijl haar",
-    "en": "curly / straight hair"
+    "nl": "wisselgeld",
+    "en": "change"
   },
   {
-    "nl": "een lang / klein persoon",
-    "en": "a tall / short person"
+    "nl": "goedkoop",
+    "en": "cheap"
   },
   {
-    "nl": "mooi",
-    "en": "beautiful"
+    "nl": "kassa",
+    "en": "checkout"
   },
   {
-    "nl": "blond haar",
-    "en": "blond hair"
+    "nl": "muntgeld",
+    "en": "coins"
   },
   {
-    "nl": "bloes",
-    "en": "blouse"
+    "nl": "heerlijk / lekker",
+    "en": "delicious"
   },
   {
-    "nl": "laarzen",
-    "en": "boots"
+    "nl": "drankje",
+    "en": "drink"
   },
   {
-    "nl": "kleren",
-    "en": "clothes"
+    "nl": "vis",
+    "en": "fish"
   },
   {
-    "nl": "jas",
-    "en": "coat"
+    "nl": "voedsel, eten",
+    "en": "food"
   },
   {
-    "nl": "kleur",
-    "en": "colour"
+    "nl": "fruit",
+    "en": "fruit"
   },
   {
-    "nl": "jurk",
-    "en": "dress"
+    "nl": "fruit afdeling",
+    "en": "fruit section"
   },
   {
-    "nl": "oorbellen",
-    "en": "earrings"
+    "nl": "groenteboer",
+    "en": "greengrocer"
   },
   {
-    "nl": "bril",
-    "en": "glasses"
+    "nl": "vlees",
+    "en": "meat"
   },
   {
-    "nl": "oud",
-    "en": "old"
+    "nl": "geld",
+    "en": "money"
   },
   {
-    "nl": "roze",
-    "en": "pink"
+    "nl": "perziken",
+    "en": "peaches"
   },
   {
-    "nl": "paars",
-    "en": "purple"
+    "nl": "Brits muntgeld",
+    "en": "pence"
   },
   {
-    "nl": "winkel",
-    "en": "shop"
+    "nl": "Brits briefgeld",
+    "en": "pound"
   },
   {
-    "nl": "kort / lang haar",
-    "en": "short / long hair"
+    "nl": "prijs",
+    "en": "price"
   },
   {
-    "nl": "rok",
-    "en": "skirt"
-  }, {
-    "nl": "sokken",
-    "en": "socks"
-  }, {
-    "nl": "trui",
-    "en": "sweater"
-  }, {
-    "nl": "beschrijven van iets",
-    "en": "to describe"
-  }, {
-    "nl": "aankleden",
-    "en": "to dress"
-  }, {
-    "nl": "laten zien",
-    "en": "to show"
-  }, {
-    "nl": "dragen van kleding",
-    "en": "to wear"
-  }, {
-    "nl": "broek",
-    "en": "trousers"
-  }, {
-    "nl": "wasmachine",
-    "en": "washing machine"
-  }, {
-    "nl": "jong",
-    "en": "young"
+    "nl": "boodschappenlijst",
+    "en": "shopping list"
+  },
+  {
+    "nl": "winkelwagentje",
+    "en": "shopping trolley"
+  },
+  {
+    "nl": "aardbeien",
+    "en": "strawberries"
+  },
+  {
+    "nl": "supermarkt",
+    "en": "supermarket"
+  },
+  {
+    "nl": "snoep",
+    "en": "sweets"
+  },
+  {
+    "nl": "honger hebben",
+    "en": "to be hungry"
+  },
+  {
+    "nl": "kopen",
+    "en": "to buy"
+  },
+  {
+    "nl": "betalen",
+    "en": "to pay"
+  },
+  {
+    "nl": "ruiken",
+    "en": "to smell"
+  },
+  {
+    "nl": "groenten",
+    "en": "vegetables"
   }
 ]
