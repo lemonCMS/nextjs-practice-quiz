@@ -66,6 +66,8 @@ class Finished extends React.Component {
     const partialGood = answersManual.reduce((x, y) => x + y);
 
     const key = `star-${question}-${limit}-${isManual}`;
+    const currStar = store.getItem(key);
+
     let star = null;
     const percentage = (100 / limit  * good);
     if (percentage === 100) {
@@ -77,8 +79,11 @@ class Finished extends React.Component {
     if (percentage < 50) {
       star = 0;
     }
-    store.setItem(key, star);
-    this.setState({star});
+
+    if (!currStar || star > currStar) {
+      store.setItem(key, star);
+      this.setState({star});
+    }
   }
 
   render() {
