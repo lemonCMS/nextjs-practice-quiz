@@ -77,7 +77,7 @@ class Answers extends React.Component {
   pushAnswer = () => {
     const {answer} = this.state;
     const {setAnswer} = this.props;
-    if (answer) {
+    if (answer !== null) {
       setAnswer(answer);
       this.setState({answer: null});
     }
