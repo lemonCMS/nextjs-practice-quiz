@@ -8,7 +8,7 @@ import localforage from "localforage";
 import MenuItem from './menu-item';
 
 const store = localforage.createInstance({
-  name: "stars2"
+  name: "stars3"
 });
 
 export default function () {

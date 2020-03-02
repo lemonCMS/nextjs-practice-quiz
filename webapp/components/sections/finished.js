@@ -17,7 +17,7 @@ import clsx from "clsx";
 import withStyles from "@material-ui/core/styles/withStyles";
 
 const store = localforage.createInstance({
-  name: "stars2"
+  name: "stars3"
 });
 
 const useStyles = theme => {

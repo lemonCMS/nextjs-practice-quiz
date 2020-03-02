@@ -1,122 +1,126 @@
 [
   {
-    "nl": "briefgeld",
-    "en": "banknotes"
+    "nl": "middag",
+    "en": "afternoon"
   },
   {
-    "nl": "broccoli",
-    "en": "broccoli"
+    "nl": "wakker",
+    "en": "awake"
   },
   {
-    "nl": "wortelen",
-    "en": "carrots"
+    "nl": "een dag",
+    "en": "a day"
   },
   {
-    "nl": "wisselgeld",
-    "en": "change"
+    "nl": "een week",
+    "en": "a week"
   },
   {
-    "nl": "goedkoop",
-    "en": "cheap"
+    "nl": "een uur",
+    "en": "an hour"
   },
   {
-    "nl": "kassa",
-    "en": "checkout"
+    "nl": "kalender",
+    "en": "calendar"
   },
   {
-    "nl": "muntgeld",
-    "en": "coins"
+    "nl": "klok",
+    "en": "clock"
   },
   {
-    "nl": "heerlijk / lekker",
-    "en": "delicious"
+    "nl": "donker",
+    "en": "dark"
   },
   {
-    "nl": "drankje",
-    "en": "drink"
+    "nl": "agenda",
+    "en": "diary"
   },
   {
-    "nl": "vis",
-    "en": "fish"
+    "nl": "avond",
+    "en": "evening"
   },
   {
-    "nl": "voedsel, eten",
-    "en": "food"
+    "nl": "vrijdag",
+    "en": "Friday"
   },
   {
-    "nl": "fruit",
-    "en": "fruit"
+    "nl": "half elf",
+    "en": "half past ten"
   },
   {
-    "nl": "fruit afdeling",
-    "en": "fruit section"
+    "nl": "vorige week",
+    "en": "last week"
   },
   {
-    "nl": "groenteboer",
-    "en": "greengrocer"
+    "nl": "lui",
+    "en": "lazy"
   },
   {
-    "nl": "vlees",
-    "en": "meat"
+    "nl": "maandag",
+    "en": "Monday"
   },
   {
-    "nl": "geld",
-    "en": "money"
+    "nl": "ochtend",
+    "en": "morning"
   },
   {
-    "nl": "perziken",
-    "en": "peaches"
+    "nl": "negen uur",
+    "en": "nine o'clock"
   },
   {
-    "nl": "Brits muntgeld",
-    "en": "pence"
+    "nl": "een keer per week",
+    "en": "once a week"
   },
   {
-    "nl": "Brits briefgeld",
-    "en": "pound"
+    "nl": "zaterdag",
+    "en": "Saterday"
   },
   {
-    "nl": "prijs",
-    "en": "price"
+    "nl": "zondag",
+    "en": "Sunday"
   },
   {
-    "nl": "boodschappenlijst",
-    "en": "shopping list"
+    "nl": "dinsdag",
+    "en": "Tuesday"
   },
   {
-    "nl": "winkelwagentje",
-    "en": "shopping trolley"
+    "nl": "donderdag",
+    "en": "Thursday"
   },
   {
-    "nl": "aardbeien",
-    "en": "strawberries"
+    "nl": "vandaag",
+    "en": "today"
   },
   {
-    "nl": "supermarkt",
-    "en": "supermarket"
+    "nl": "morgen",
+    "en": "tomorrow"
   },
   {
-    "nl": "snoep",
-    "en": "sweets"
+    "nl": "de tijd",
+    "en": "the time"
   },
   {
-    "nl": "honger hebben",
-    "en": "to be hungry"
+    "nl": "het horloge",
+    "en": "the watch"
   },
   {
-    "nl": "kopen",
-    "en": "to buy"
+    "nl": "opstaan",
+    "en": "to get up"
   },
   {
-    "nl": "betalen",
-    "en": "to pay"
+    "nl": "haasten",
+    "en": "to rush"
   },
   {
-    "nl": "ruiken",
-    "en": "to smell"
+    "nl": "slapen",
+    "en": "to sleep"
   },
   {
-    "nl": "groenten",
-    "en": "vegetables"
+    "nl": "wakker worden",
+    "en": "to wake up"
+  },
+  {
+    "nl": "woensdag",
+    "en": "Wednesday"
   }
 ]
