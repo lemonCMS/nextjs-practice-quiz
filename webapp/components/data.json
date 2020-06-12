@@ -1,126 +1,118 @@
 [
   {
-    "nl": "middag",
-    "en": "afternoon"
+    "nl": "adres",
+    "en": "address"
   },
   {
-    "nl": "wakker",
-    "en": "awake"
+    "nl": "met de fiets",
+    "en": "by bicycle"
   },
   {
-    "nl": "een dag",
-    "en": "a day"
+    "nl": "met de boot",
+    "en": "by boat"
   },
   {
-    "nl": "een week",
-    "en": "a week"
+    "nl": "met de bus",
+    "en": "by bus"
   },
   {
-    "nl": "een uur",
-    "en": "an hour"
+    "nl": "met de auto",
+    "en": "by car"
   },
   {
-    "nl": "kalender",
-    "en": "calendar"
+    "nl": "met het vliegtuig",
+    "en": "by plane"
   },
   {
-    "nl": "klok",
-    "en": "clock"
+    "nl": "met de trein",
+    "en": "by train"
   },
   {
-    "nl": "donker",
-    "en": "dark"
+    "nl": "druk met mensen",
+    "en": "crowded"
   },
   {
-    "nl": "agenda",
-    "en": "diary"
+    "nl": "het oosten",
+    "en": "east"
   },
   {
-    "nl": "avond",
-    "en": "evening"
+    "nl": "snel",
+    "en": "fast"
   },
   {
-    "nl": "vrijdag",
-    "en": "Friday"
+    "nl": "eerst(e)",
+    "en": "first"
   },
   {
-    "nl": "half elf",
-    "en": "half past ten"
+    "nl": "haast hebben ",
+    "en": "in a hurry"
   },
   {
-    "nl": "vorige week",
-    "en": "last week"
+    "nl": "laat",
+    "en": "late"
   },
   {
-    "nl": "lui",
-    "en": "lazy"
+    "nl": "meter",
+    "en": "metre"
   },
   {
-    "nl": "maandag",
-    "en": "Monday"
+    "nl": "het noorden",
+    "en": "north"
   },
   {
-    "nl": "ochtend",
-    "en": "morning"
+    "nl": "te voet, lopend",
+    "en": "on foot"
   },
   {
-    "nl": "negen uur",
-    "en": "nine o'clock"
+    "nl": "perron",
+    "en": "platform"
   },
   {
-    "nl": "een keer per week",
-    "en": "once a week"
+    "nl": "snel",
+    "en": "quickly"
   },
   {
-    "nl": "zaterdag",
-    "en": "Saterday"
+    "nl": "treinstation",
+    "en": "railway station"
   },
   {
-    "nl": "zondag",
-    "en": "Sunday"
+    "nl": "tweede",
+    "en": "second"
   },
   {
-    "nl": "dinsdag",
-    "en": "Tuesday"
+    "nl": "langzaam",
+    "en": "slowly"
   },
   {
-    "nl": "donderdag",
-    "en": "Thursday"
+    "nl": "het zuiden",
+    "en": "south"
   },
   {
-    "nl": "vandaag",
-    "en": "today"
+    "nl": "taxichauffeur",
+    "en": "taxi driver"
   },
   {
-    "nl": "morgen",
-    "en": "tomorrow"
+    "nl": "(trein)kaartje",
+    "en": "ticket"
   },
   {
-    "nl": "de tijd",
-    "en": "the time"
+    "nl": "de weg vragen",
+    "en": "to ask the way"
   },
   {
-    "nl": "het horloge",
-    "en": "the watch"
+    "nl": "vertrekken",
+    "en": "to depart"
   },
   {
-    "nl": "opstaan",
-    "en": "to get up"
+    "nl": "reizen",
+    "en": "to travel"
   },
   {
-    "nl": "haasten",
-    "en": "to rush"
+    "nl": "(korte)reis",
+    "en": "trip"
   },
   {
-    "nl": "slapen",
-    "en": "to sleep"
-  },
-  {
-    "nl": "wakker worden",
-    "en": "to wake up"
-  },
-  {
-    "nl": "woensdag",
-    "en": "Wednesday"
+    "nl": "het westen",
+    "en": "west"
   }
 ]
